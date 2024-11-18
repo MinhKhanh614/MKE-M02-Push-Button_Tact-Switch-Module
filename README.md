@@ -69,284 +69,62 @@ Khi nhấn nút, chân SIG sẽ xuất ra 0V. Khi nhả nút, chân SIG sẽ xu�
 </tbody>
 </table>
 
-## Hướng dẫn sử dụng với phần mềm Arduino và Vietduino
+## Hướng dẫn sử dụng
 
-### Phần cứng cần chuẩn bị
+### Các thiết bị sử dụng trong bài hướng dẫn
 
-- Mạch nút nhấn MKE-M02 push button tact switch module
-- Mạch Vietduino Uno (Arduino Uno Compatible)
-- Mạch MakerEdu Shield for Vietduino
-- Cáp USB để nạp chương trình và cấp nguồn
+#### Arduino
 
-> **Lưu ý:**  
-Nếu không có mạch Vietduino Uno bạn vẫn có thể sử dụng mạch Vietduino Mega 2560, Arduino Uno, Arduino Mega 2560 hoặc các mạch phần cứng có cấu trúc các chân GPIO tương tự.
+- [Mạch Vietduino Uno (Arduino Uno Compatible)](https://www.makerlab.vn/vuno)
+- [Mạch MakerEdu Shield for Vietduino](https://www.makerlab.vn/vietduinosd)
+- [Mạch màn hình MKE-M07 LCD1602 I2C Display Module](https://www.makerlab.vn/mkem07)
 
-### Phần mềm cần chuẩn bị
+#### mBlock
 
-- Tải và cài đặt phần mềm Arduino theo hướng dẫn.
-- Tải và cài đặt Driver, cấu hình cho mạch Vietduino Uno trên phần mềm Arduino theo hướng dẫn.
-- Tải và cài đặt bộ thư viện nút nhấn theo hướng dẫn.
+- [Mạch MakerEdu Creator (Arduino Uno Compatible)](https://www.makerlab.vn/creator)
+- [Mạch màn hình MKE-M07 LCD1602 I2C Display Module](https://www.makerlab.vn/mkem07)
 
-### Chương trình mẫu
+#### Micro:bit:
 
-```ino
-// Thêm bộ thư viện Nút nhấn.
-// Add the Button library.
+- [Mạch Micro:bit V2](https://hshop.vn/products/kit-hoc-lap-trinh-stem-cho-tre-em-micro-bit-v2) hoặc các phiên bản tương thích.
+- [Mạch MakerEdu Shield for Micro:bit](https://www.makerlab.vn/microbitsd)
+- [Mạch màn hình MKE-M07 LCD1602 I2C Display Module](https://www.makerlab.vn/mkem07)
 
-# include <OneButton.h>
+### Hướng dẫn sử dụng với Arduino (Code C)
 
-// Chọn chân Digital cho Nút nhấn.
-// Select the Digital pin for Button.
+[Hướng dẫn cài đặt phần mềm, nạp chương trình, cài đặt bộ thư viện Arduino cơ bản.](https://github.com/makerlabvn/Arduino-Vietduino)
 
-# define BUTTON_PIN 11
+- Tải và cài đặt [phần mềm Arduino tại đây.](https://www.arduino.cc/en/software)
+- Trong Tools / Library Manager, tìm và cài đặt bộ thư viện tổng hợp "MAKERLABVN" by MakerLab.vn
+- Mở chương trình mẫu "MKE_M02_Button_LCD_Serial.ino" tại File / Examples / MAKERLABVN / Sensor / MKE_M02_Button_LCD_Serial hoặc [tải chương trình mẫu tại đây](/arduino)
+- Chọn board là Arduino Uno (mạch Vietduino Uno tương thích với Arduino Uno), chọn đúng cổng COM Port của mạch và tiến hành nạp chương trình.
+- Kết nối mạch Vietduino Uno với MakerEdu Shield, kết nối màn hình LCD vào cổng [I2C] trên MakerEdu Shield, cấp nguồn qua cổng USB của Vietduino Uno để thấy chương trình hoạt động.
 
-// Khởi tạo "OneButton" cho Nút nhấn với cấu hình sau.
-// Initialize "OneButton" for the Button with the following config.
-OneButton btn = OneButton(
-    BUTTON_PIN, // Cấu hình đây là chân Digital Input.
-    true,       // Nút nhấn kích hoạt LOW.
-    false       // Kích hoạt điện trở nội "Pull-Up".
-);
+### Hướng dẫn lập trình với mBlock (kéo thả khối)
 
-// Lưu số lần thực hiện 1 Click vào nút.
-// Save the number of times make 1 Click on the Button.
-int value = 0;
+[Hướng dẫn cài đặt phần mềm, nạp chương trình, cài đặt Extension mBlock cơ bản.](https://github.com/makerlabvn/mBlock-MakerEdu-Creator)
 
-void setup()
-{
-  // Khởi động kết nối Serial UART ở tốc độ 9600 để truyền dữ liệu lên máy tính.
-  // Start the Serial UART connection at 9600 to transfer data to the computer.
-  Serial.begin(9600);
+- Tải và cài đặt phần mềm mBlock 5 ([Windows](https://www.mediafire.com/file/ma55iajd7glwmbo/%255BMakerLab.vn%255D_mBlock_V5.4.3_for_Windows.zip/file) / [Mac Intel](https://www.mediafire.com/file/pjfngy6d7ktb55f/%255BMakerLab.vn%255D_mBlock_V5.4.3_for_Mac_Intel.zip/file) / [Mac M1M2](https://www.mediafire.com/file/mfdkgpgnpa7uv2s/%255BMakerLab.vn%255D_mBlock_V5.4.3_for_Mac_M1M2.zip/file))
+- Thêm Device "MakerEdu Creator" by MakerEduVN
+- Thêm Extension "Upload Mode Broadcast" by mBlock Official
+- Thêm Extension "MakerEdu Hardware" by MakerEduVN
+- Mở [chương trình mẫu tại đây](/mBlock5), kết nối MakerEdu Creator với máy tính và nạp chương trình.
+- Kết nối màn hình LCD vào cổng [I2C] trên MakerEdu Creator, cấp nguồn qua cổng USB của MakerEdu Creator để thấy chương trình hoạt động.
 
-  // Liên kết hàm "count" được gọi trên một sự kiện 1 Click.
-  // Link the "count" function to be called on a single click event.
-  btn.attachClick(count);
-}
+### Hướng dẫn lập trình với Micro:bit (kéo thả khối)
 
-void loop()
-{
-  // Tiếp tục theo dõi Nút nhấn.
-  // Keep watching the Button.
-  btn.tick();
-}
+[Hướng dẫn nạp chương trình, cài đặt Extension Micro:bit cơ bản.](https://github.com/makerlabvn/MakeCode-microbit)
 
-void count()
-{
-  // Ghi lại đây là 1 Click.
-  // Record this is 1 Click.
-  value++;
+- Khởi động phần mềm MakeCode tại: [https://makecode.microbit.org/](https://makecode.microbit.org/)
+- Chọn My Projects / Import / Import URL theo đường link của chương trình mẫu: [https://github.com/devmakerlabvn/](https://github.com/devmakerlabvn/makecode-mke-s01-ultrasonic-distance-sensor)
+- Kết nối Micro:bit với máy tính và nạp chương trình.
+- Kết nối mạch Micro:bit với MakerEdu Shield, màn hình LCD vào cổng [I2C] trên MakerEdu Shield, **cấp nguồn qua cổng USB của MakerEdu Shield** để thấy chương trình hoạt động.
 
-  // Truyền giá trị lên máy tính.
-  // Transmit the value to the computer.
-  Serial.print("Count: ");
-  Serial.println(value);
-}
-```
+## Hỗ trợ và liên hệ
 
-### Sơ đồ kết nối
-
-<table><thead>
-  <tr>
-    <th>MakerEdu Shield for Vietduino</th>
-    <th>Arduino / Vietduino</th>
-    <th>Devices</th>
-  </tr></thead>
-<tbody>
-  <tr>
-    <td>Port D11</td>
-    <td>D11</td>
-    <td>Mạch nút nhấn MKE-M02 push button tact switch module</td>
-  </tr>
-</tbody>
-</table>
-
-### Các bước tiến hành
-
-1. Kết nối mạch Vietduino Uno với mạch MakerEDU Shield for Vietduino.
-1. Kết nối Mạch Nút Nhấn MKE-M02 với mạch MakerEDU Shied for Vietduino qua Port D11.
-1. Kết nối mạch Vietduino Uno với máy tính bằng cáp USB và cấu hình mạch trên phần mềm Arduino (Board / Port).
-1. Nạp chương trình mẫu vào mạch Vietduino Uno.
-1. Nhấn nút Reset trên mạch Vietduino Uno hoặc mạch MakerEDU Shield for Vietduino để bắt đầu chạy chương trình.
-
-Kết quả:
-...pic
-
-## Hướng dẫn sử dụng với phần mềm mBlock và MakerEdu Creator
-
-### Phần cứng cần chuẩn bị
-
-- Mạch nút nhấn MKE-M02 push button tact switch module
-- Mạch hiển thị MKE-M07 LCD1602 I2C module
-- Mạch MakerEdu Creator
-- Cáp USB để nạp chương trình và cấp nguồn
-
-### Phần mềm cần chuẩn bị
-
-- Tải và cài đặt phần mềm mBlock theo hướng dẫn.
-- Tải và cài đặt Driver, cấu hình cho Mạch MakerEdu Creator trên phần mềm mBlock theo hướng dẫn.
-- Tải và cài đặt Extension MakerEdu Hardware trên phần mềm Mblock theo hướng dẫn.
-
-### Chương trình mẫu
-
-- Mỗi khi bạn nhấn "1 Click" trên nút nhấn, mạch MakerEdu Creator sẽ đếm và hiển thị số lần bạn nhấn nút lên màn hình LCD.
-
-#### Blocks
-
-![](/image/tact4.png)
-
-### Sơ đồ kết nối
-
-<table><thead>
-  <tr>
-    <th>MakerEdu Creator</th>
-    <th>Devices</th>
-  </tr></thead>
-<tbody>
-  <tr>
-    <td>Port D11</td>
-    <td>Mạch Nút Nhấn MKE-M02 Push Button Tact Switch Module</td>
-  </tr>
-  <tr>
-    <td>Port I2C</td>
-    <td>Mạch Hiển Thị MKE-M07 LCD1602 I2C Module</td>
-  </tr>
-</tbody>
-</table>
-
-### Các bước tiến hành
-
-- Kết nối Mạch Nút Nhấn MKE-M02 với mạch MakerEdu Creator qua Port D11.
-- Kết nối Mạch Hiển Thị MKE-M07 với mạch MakerEdu Creator qua Port I2C.
-- Kết nối mạch MakerEdu Creator với máy tính bằng cáp USB và cấu hình mạch trên phần mềm mBlock.
-- Nạp chương trình mẫu vào mạch MakerEdu Creator.
-- Nhấn nút Reset trên mạch MakerEdu Creator để bắt đầu chạy chương trình.
-
-Kết quả:
-...pic
-
-## Hướng dẫn sử dụng với phần mềm MakeCode và Micro:bit
-
-### Phần cứng cần chuẩn bị
-
-- Mạch nút nhấn MKE-M02 push button tact switch module
-- Mạch MakerEdu Shield for Micro:bit
-- Mạch Micro:Bit
-- Cáp USB để nạp chương trình và cấp nguồn
-
-### Phần mềm cần chuẩn bị
-
-1. Khởi động phần mềm MakeCode theo hướng dẫn.
-1. Cài đặt Extension MakerEdu Hardware trên MadeCode và tham khảo các khối chức năng theo hướng dẫn.
-1. Tham khảo cách kết nối và nạp chương trình cho Micro:bit trên máy tính hoặc điện thoại, máy tính bảng.
-
-### Chương trình mẫu
-
-1. Trên bo mạch Micro:Bit có sẵn bảng mạch 25 LED để sử dụng.
-1. Trong chương trình này, mỗi khi nhấn nút Micro:bit sẽ lấy ngẫu nhiên một số từ 1 đến 6, và cho hiển thị mặt "xúc xắc" tương ứng lên 25 LED kia.
-
-#### Blocks
-
-![](/image/tact5.png)
-
-#### Javascript
-
-```java
-// Giá trị của "xúc xắc"
-let random = 0
-
-// Khi nhấn nút (P0) sẽ đổ "xúc xắc"
-input.onPinPressed(TouchPin.P0, function () {
-  basic.showLeds(`
-        . . . . .
-        . . . . .
-        . . . . .
-        . . . . .
-        . . . . .
-        `)
-  // Lấy một số ngẫu nhiên trong khoảng 1 đến 6
-  random = randint(1, 6)
-
-  // Cho hiển thị mặt "xúc xắc" theo số tương ứng
-  if (random == 1) {
-    basic.showLeds(`
-            . . . . .
-            . . . . .
-            . . # . .
-            . . . . .
-            . . . . .
-            `)
-  } else if (random == 2) {
-    basic.showLeds(`
-            . . # . .
-            . . . . .
-            . . . . .
-            . . . . .
-            . . # . .
-            `)
-  } else if (random == 3) {
-    basic.showLeds(`
-            . . . . #
-            . . . . .
-            . . # . .
-            . . . . .
-            # . . . .
-            `)
-  } else if (random == 4) {
-    basic.showLeds(`
-            # . . . #
-            . . . . .
-            . . . . .
-            . . . . .
-            # . . . #
-            `)
-  } else if (random == 5) {
-    basic.showLeds(`
-            # . . . #
-            . . . . .
-            . . # . .
-            . . . . .
-            # . . . #
-            `)
-  } else if (random == 6) {
-    basic.showLeds(`
-            # . . . #
-            . . . . .
-            # . . . #
-            . . . . .
-            # . . . #
-            `)
-  }
-})
-```
-
-### Sơ đồ kết nối
-
-<table><thead>
-  <tr>
-    <th>MakerEDU Shield for Micro:bit</th>
-    <th>Devices</th>
-  </tr></thead>
-<tbody>
-  <tr>
-    <td>Port P0</td>
-    <td>Mạch Nút Nhấn MKE-M02 Push Button Tact Switch Module</td>
-  </tr>
-</tbody>
-</table>
-
-### Các bước tiến hành
-
-1. Kết nối Mạch Nút Nhấn MKE-M02 với mạch MakerEDU Shield For Micro:Bit qua Port P0.
-1. Gắn bo Micro:Bit lên mạch MakerEDU Shield.
-1. Kết nối Micro:bit với mạch MakerEdu Shield for Micro:bit
-1. Nạp chương trình mẫu vào mạch Micro:Bit.
-1. Nhấn nút Reset trên mạch Micro:Bit để bắt đầu chạy chương trình.  
-
-Kết quả:
-...pic
+- Website: [https://www.makerlab.vn/](https://www.makerlab.vn/)
+- Facebook: [https://www.facebook.com/makerlabvn](https://www.facebook.com/makerlabvn)
 
 ## Nhà phân phối
 
-Có thể mua Mạch nút nhấn MKE-M02 push button tact switch module tại các nhà phân phối sau:
-
-- Hshop.vn - Điện tử & Robot.
+- Các bạn có thể mua sản phẩm của MakerLab tại các [Nhà Phân Phối.](https://www.makerlab.vn/distributor/)
