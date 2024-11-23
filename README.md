@@ -1,96 +1,124 @@
-# Vietduino Uno USB Type - C (Arduino Uno Compatible)
+# Mạch nút nhấn MKE-M02 push button tact switch module
+
+![](/image/tact1.jpg)
 
 ## Giới thiệu
 
-Mạch Vietduino Uno (Arduino Uno Compatible) được nghiên cứu và và sản xuất bởi MakerLab.vn dựa trên nguyên mẫu là mạch Arduino Uno với các ưu điểm vượt trội:
+Mạch nút nhấn MKE-M02 push button tact switch module sử dụng nút nhấn kích thước lớn giúp dễ dàng lắp đặt, thao tác, nút nhấn sử dụng trong loại là loại nhấn nhả (tact switch) thường được dùng để kích tín hiệu, nút nhấn có nắp chụp với nhiều màu sắc khác nhau để dễ phân biệt.
 
-1. Thiết kế tương thích hoàn toàn về hình dạng, chuẩn chân tín hiệu và cách sử dụng với Arduino Uno.
-2. Sử dụng mạch nguồn xung giảm áp với ưu điểm là hiệu suất chuyển đổi cao, toả nhiệt thấp, tiết kiệm năng lượng, dải điện áp đầu vào cấp cho mạch rộng từ 6~24VDC với dòng đầu ra lớn: 5VDC/Max 1500mA, 3.3VDC / Max 700mA.
-3. Bổ sung thêm các chân cấp nguồn POWER+ 5VDC giúp dễ dàng cấp nguồn cho nhiều thiết bị khác nhau.
-4. Sử dụng IC chuyển đổi USB-UART CH340 được nhập khẩu chính hãng cho độ ổn định và độ bền cao.
-5. Chức năng cách ly nguồn cổng USB tự động khi cấp nguồn ngoài từ chân Vin hoặc giắc DC giúp bảo vệ cổng USB máy tính của bạn an toàn hơn.
+Mạch nút nhấn MKE-M02 push button tact switch module thuộc hệ sinh thái phần cứng Robotics MakerEdu nên có thể sử dụng trực tiếp an toàn với các mạch điều khiển trung tâm ở cả hai mức điện áp 3.3VDC và 5VDC như: Arduino, Raspberry Pi, Jetson Nano, Micro:bit,....với chuẩn kết nối Connector XH2.54 thông dụng.
 
 ## Thông số kỹ thuật
 
-- **Model**: Vietduino Uno (Arduino Uno Compatible)  
-- **Vi điều khiển**: ATmega328P-PU  
-- **Điện áp hoạt động**: 5VDC  
-- **Điện áp đầu vào VIN**: 6~24VDC  
-- **Dòng DC đầu ra các chân I/O**: Max 20mA  
-- **Dòng DC đầu ra chân 3V3**: Max 700mA  
-- **Dòng DC đầu ra chân 5V**: Max 1500mA  
-- **Flash Memory**: 32KB với 0.5 KB sử dụng cho bootloader  
-- **SRAM**: 2KB  
-- **EEPROM**: 1KB  
-- **Clock Speed**: 16MHz  
-- **IC nạp chương trình và giao tiếp UART**: CH340  
-- **Cổng giao tiếp máy tính**: USB-C  
-- **Kích thước**: 68.6 x 53.34mm  
+- Loại nút nhấn: nhấn nhả (tact switch)
+- Điện áp hoạt động: 5VDC
+- Chuẩn giao tiếp: Digital
+- Điện áp giao tiếp: TTL 3.3/5VDC
+- Có 4 phiên bản màu sắc: Xanh Lá, Xanh Dương, Vàng, Đỏ.
+- Sử dụng trực tiếp an toàn với các board mạch giao tiếp ở cả hai mức điện áp 3.3VDC và 5VDC như: Arduino, Raspberry Pi, Jetson Nano, Micro:bit,....
+- Bổ sung thêm các thiết kế ổn định, chống nhiễu.
+- Chuẩn kết nối: connector XH2.54 3Pins
+- Thuộc hệ sinh thái phần cứng Robotics MakerEdu, tương thích tốt nhất khi sử dụng với các mạch điều khiển trung tâm của MakerEdu và MakerEdu Shield.
 
-## Hình ảnh sản phẩm
+> **Lưu ý:**  
+Khi nhấn nút, chân SIG sẽ xuất ra 0V. Khi nhả nút, chân SIG sẽ xuất ra 3V3 !
 
-![Vietduino_Uno_USB_Type_C](image/vietunoc1.jpg)
+## Kích thước
 
-![Vietduino_Uno_USB_Type_C](/image/vietunoc2.jpg)
-
-## Kích thước sản phẩm
-
-![Vietduino_Uno_USB_Type_C](/image/vietunoc3.jpg)
+![](/image/tact2.jpg)
 
 ## Các chân tín hiệu
 
-- **Digital I/O**: 14 chân (với 6 chân có chức năng PWM)  
-- **PWM Digital I/O**: 6 chân (D3, D5, D6, D9, D10, D11)  
-- **Analog Input**: 6 chân (A0~A5)  
-- **LED_BUILTIN**: D13  
+![](/image/tact3.jpg)
 
-## Hướng dẫn sử dụng với phần mềm Arduino
+<table><thead>
+  <tr>
+    <th>MKE-M02</th>
+    <th>Ghi chú</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td>GND</td>
+    <td>Chân cấp nguồn âm 0VDC</td>
+  </tr>
+  <tr>
+    <td>5V</td>
+    <td>Chân cấp nguồn dương 5VDC</td>
+  </tr>
+  <tr>
+    <td>SIG</td>
+    <td>Chân tín hiệu Digital Out</td>
+  </tr>
+</tbody>
+</table>
 
-### Hướng dẫn sử dụng phần mềm Arduino cơ bản
+<table><thead>
+  <tr>
+    <th>SIG (Digital Out)</th>
+    <th>Trạng thái</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td>TTL HIGH</td>
+    <td>Hoạt động (On)</td>
+  </tr>
+  <tr>
+    <td>TTL LOW</td>
+    <td>Không hoạt động (Off)</td>
+  </tr>
+</tbody>
+</table>
 
-1) Giới thiệu về Arduino
-2) Ngôn ngữ lập trình Arduino
-3) Cách cài đặt phần mềm Arduino IDE
-4) Cách cài đặt Driver và nạp chương trình cho mạch Arduino / Arduino Compatible
-5) Cách cài đặt các thư viện phần cứng Arduino Library
-6) Cách sử dụng Serial Monitor & Serial Plotter trên phần mềm Arduino
+## Hướng dẫn sử dụng
 
-### Hướng dẫn kết nối và nạp chương trình cho Mạch Vietduino Uno trên phần mềm Arduino
+### Các thiết bị sử dụng trong bài hướng dẫn
 
-1) **Kết nối máy tính**: Kết nối Mạch Vietduino Uno với máy tính bằng cáp USB sẽ thấy Led nguồn ON trên mạch **phát sáng**:
+#### Arduino
 
-[![Vietduino_Uno_USB_Type_C](/image/vietunoc4.jpg)]()
+- [Mạch Vietduino Uno (Arduino Uno Compatible)](https://www.makerlab.vn/vuno)
+- [Mạch MakerEdu Shield for Vietduino](https://www.makerlab.vn/vietduinosd)
+- [Mạch màn hình MKE-M07 LCD1602 I2C Display Module](https://www.makerlab.vn/mkem07)
 
-2) **Cài đặt Driver**: Mạch Vietduino Uno mà một mạch Arduino Uno Compatible (tương thích Arduino Uno) sử dụng IC nạp chương trình và giao tiếp máy tính CH340, các bạn có thể tham khảo Hướng dẫn cài đặt Driver cho các mạch sử dụng IC giao tiếp USB-UART CH34x - MakerLab Wiki.
-3) **Cấu hình mạch trên phần mềm Arduino**: Để cấu hình mạch trên phần mềm Arduino chúng ta cần làm các bước sau:
+#### mBlock
 
-     Thiết lập Board tại **Tools > Board > Arduino AVR Boards > Arduino Uno và Port (cổng kết nối) cho mạch**, nếu không xác định được cổng kết nối có thể ngắt kết nối mạch và kết nối lại đồng thời kiểm tra phần Port để thấy cổng kết nối mới của mạch xuất hiện:  
+- [Mạch MakerEdu Creator (Arduino Uno Compatible)](https://www.makerlab.vn/creator)
+- [Mạch màn hình MKE-M07 LCD1602 I2C Display Module](https://www.makerlab.vn/mkem07)
 
-[![Vietduino_Uno_USB_Type_C](/image/vietunoc5.jpg)]()
+#### Micro:bit:
 
-Sau khi đã hoàn thành các thiết lập cơ bản bạn có thể nạp chương trình **Blink** sau vào mạch để test bằng cách nhấn vào nút **Upload** hoặc chọn **Sketch > Upload** sẽ thấy Led được kết nối với chân D13 trên mạch chớp tắt **1 giây 1 lần**:<br>
+- [Mạch Micro:bit V2](https://hshop.vn/products/kit-hoc-lap-trinh-stem-cho-tre-em-micro-bit-v2) hoặc các phiên bản tương thích.
+- [Mạch MakerEdu Shield for Micro:bit](https://www.makerlab.vn/microbitsd)
+- [Mạch màn hình MKE-M07 LCD1602 I2C Display Module](https://www.makerlab.vn/mkem07)
 
-```ino
-/*
-  Blink
-  Turns an LED_BUILTIN on D13 of Vietduino Uno for one second, then off for one second, repeatedly.
-*/
-// the setup function runs once when you press reset or power the board
-void setup() {
-  // initialize digital pin LED_BUILTIN on D13 as an output.
-  pinMode(13, OUTPUT);
-}
+### Hướng dẫn sử dụng với Arduino (Code C)
 
-// the loop function runs over and over again forever
-void loop() {
-  digitalWrite(13, HIGH);  // turn the LED on (HIGH is the voltage level)
-  delay(1000);                      // wait for a second
-  digitalWrite(13, LOW);   // turn the LED off by making the voltage LOW
-  delay(1000);                      // wait for a second
-}
-```
+[Hướng dẫn cài đặt phần mềm, nạp chương trình, cài đặt bộ thư viện Arduino cơ bản.](https://github.com/makerlabvn/Arduino-Vietduino)
 
-[![Vietduino_Uno_USB_Type_C](/image/vietunoc6.jpg)]()
+- Tải và cài đặt [phần mềm Arduino tại đây.](https://www.arduino.cc/en/software)
+- Trong Tools / Library Manager, tìm và cài đặt bộ thư viện tổng hợp "MAKERLABVN" by MakerLab.vn
+- Mở chương trình mẫu "MKE_M02_Button_LCD_Serial.ino" tại File / Examples / MAKERLABVN / Module / MKE_M02_Button_LCD_Serial hoặc [tải chương trình mẫu tại đây](/arduino)
+- Chọn board là Arduino Uno (mạch Vietduino Uno tương thích với Arduino Uno), chọn đúng cổng COM Port của mạch và tiến hành nạp chương trình.
+- Kết nối mạch Vietduino Uno với MakerEdu Shield, kết nối màn hình LCD vào cổng [I2C] trên MakerEdu Shield, cấp nguồn qua cổng USB của Vietduino Uno để thấy chương trình hoạt động.
+
+### Hướng dẫn lập trình với mBlock (kéo thả khối)
+
+[Hướng dẫn cài đặt phần mềm, nạp chương trình, cài đặt Extension mBlock cơ bản.](https://github.com/makerlabvn/mBlock-MakerEdu-Creator)
+
+- Tải và cài đặt phần mềm mBlock 5 ([Windows](https://www.mediafire.com/file/ma55iajd7glwmbo/%255BMakerLab.vn%255D_mBlock_V5.4.3_for_Windows.zip/file) / [Mac Intel](https://www.mediafire.com/file/pjfngy6d7ktb55f/%255BMakerLab.vn%255D_mBlock_V5.4.3_for_Mac_Intel.zip/file) / [Mac M1M2](https://www.mediafire.com/file/mfdkgpgnpa7uv2s/%255BMakerLab.vn%255D_mBlock_V5.4.3_for_Mac_M1M2.zip/file))
+- Thêm Device "MakerEdu Creator" by MakerEduVN
+- Thêm Extension "Upload Mode Broadcast" by mBlock Official
+- Thêm Extension "MakerEdu Hardware" by MakerEduVN
+- Mở [chương trình mẫu tại đây](/mBlock5), kết nối MakerEdu Creator với máy tính và nạp chương trình.
+- Kết nối màn hình LCD vào cổng [I2C] trên MakerEdu Creator, cấp nguồn qua cổng USB của MakerEdu Creator để thấy chương trình hoạt động.
+
+### Hướng dẫn lập trình với Micro:bit (kéo thả khối)
+
+[Hướng dẫn nạp chương trình, cài đặt Extension Micro:bit cơ bản.](https://github.com/makerlabvn/MakeCode-microbit)
+
+- Khởi động phần mềm MakeCode tại: [https://makecode.microbit.org/](https://makecode.microbit.org/)
+- Chọn My Projects / Import / Import URL theo đường link của chương trình mẫu: [https://github.com/devmakerlabvn/](https://github.com/devmakerlabvn/makecode-mke-s01-ultrasonic-distance-sensor)
+- Kết nối Micro:bit với máy tính và nạp chương trình.
+- Kết nối mạch Micro:bit với MakerEdu Shield, màn hình LCD vào cổng [I2C] trên MakerEdu Shield, **cấp nguồn qua cổng USB của MakerEdu Shield** để thấy chương trình hoạt động.
 
 ## Hỗ trợ và liên hệ
 
